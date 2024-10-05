@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const dayCell = document.createElement('td');
         const checkButton = document.createElement('button');
         checkButton.classList.add(checked ? 'checked' : '');
-        checkButton.textContent = checked ? '✔' : '○';
+        checkButton.textContent = checked ? '✔' : '';
         checkButton.addEventListener('click', () => {
           habit.days[dayIndex] = !habit.days[dayIndex];
           saveHabits();
