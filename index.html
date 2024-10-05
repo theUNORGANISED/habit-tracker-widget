@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Habit Tracker Widget</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Habit Tracker</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="tracker-container">
-    <h1>Habit Tracker</h1>
-    
-    <table class="habit-tracker">
+  <div class="habit-tracker">
+    <h2>Weekly Habit Tracker</h2>
+    <table id="habit-table">
       <thead>
         <tr>
           <th>Habit</th>
@@ -21,17 +20,17 @@
           <th>F</th>
           <th>S</th>
           <th>S</th>
-          <th>Actions</th>
         </tr>
       </thead>
-      <tbody id="habits-body">
-        <!-- Dynamic habits go here -->
+      <tbody id="habit-body">
+        <!-- Habit rows will be dynamically generated here -->
       </tbody>
     </table>
-
-    <div class="habit-input">
-      <input type="text" id="new-habit" placeholder="Enter new habit">
-      <button id="add-habit">Add Habit</button>
+    
+    <!-- Input for adding new habits -->
+    <div class="add-habit">
+      <input type="text" id="new-habit" placeholder="Add a new habit">
+      <button id="add-habit-btn">Add Habit</button>
     </div>
   </div>
 
