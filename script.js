@@ -11,22 +11,22 @@ document.addEventListener('DOMContentLoaded', function () {
     habits.forEach((habit, habitIndex) => {
       const row = document.createElement('tr');
       
-      // Habit name cell
+      // Habit name cell (editable)
       const habitNameCell = document.createElement('td');
       habitNameCell.textContent = habit.name;
-      habitNameCell.contentEditable = true; // Make habit names editable
+      habitNameCell.contentEditable = true; // Allow users to edit habit names
       habitNameCell.addEventListener('blur', () => {
         habit.name = habitNameCell.textContent;
         saveHabits();
       });
       row.appendChild(habitNameCell);
       
-      // Day checkboxes
+      // Day checkboxes (Monday to Sunday)
       habit.days.forEach((checked, dayIndex) => {
         const dayCell = document.createElement('td');
         const checkButton = document.createElement('button');
         checkButton.classList.add(checked ? 'checked' : '');
-        checkButton.textContent = checked ? '✔' : '';
+        checkButton.textContent = checked ? '✔' : '○';
         checkButton.addEventListener('click', () => {
           habit.days[dayIndex] = !habit.days[dayIndex];
           saveHabits();
@@ -36,17 +36,18 @@ document.addEventListener('DOMContentLoaded', function () {
         row.appendChild(dayCell);
       });
 
-      // Delete habit button
+      // Delete habit option
       const deleteCell = document.createElement('td');
-      const deleteButton = document.createElement('button');
-      deleteButton.textContent = '❌';
+      const deleteButton = document.createElement('span');
+      deleteButton.classList.add('delete-habit');
+      deleteButton.textContent = 'Delete';
       deleteButton.addEventListener('click', () => {
         habits.splice(habitIndex, 1);
         saveHabits();
         renderHabits();
       });
-      row.appendChild(deleteCell);
       deleteCell.appendChild(deleteButton);
+      row.appendChild(deleteCell);
 
       habitTableBody.appendChild(row);
     });
